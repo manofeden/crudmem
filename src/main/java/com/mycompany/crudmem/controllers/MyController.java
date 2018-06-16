@@ -22,7 +22,6 @@ import com.mycompany.crudmem.service.ClientService;
 
 @Controller
 public class MyController {
-	static boolean isTabClients = false;
 
 	@Autowired
 	ClientService service;
@@ -30,12 +29,6 @@ public class MyController {
 	@RequestMapping("/")
 	public String index(Model map) {
 		System.out.println("/index - GET");
-
-		if (!isTabClients) {
-			service.createClients();
-			isTabClients = true;
-		}
-
 		map.addAttribute("clients", service.getClients());
 		return "index";
 	}

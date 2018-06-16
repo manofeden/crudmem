@@ -12,8 +12,6 @@ public interface ClientService {
 
 	Client getClient(int i);
 
-	void createClients();
-
 	List<Client> getClients();
 
 	List<Client> getClientsForSnils(String snils);

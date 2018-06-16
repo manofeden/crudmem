@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,12 +19,6 @@ import com.mycompany.crudmem.model.Client;
  */
 @Repository
 public class ClientDao_Impl implements ClientDao {
-
-	@Override
-	public void createClients() {
-		dataList = new CopyOnWriteArrayList<>();
-		System.out.println("CREATE List clients ...");
-	}
 
 	@Override
 	public Client getClient(int x) {

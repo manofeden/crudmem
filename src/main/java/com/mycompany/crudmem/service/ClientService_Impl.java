@@ -19,11 +19,6 @@ public class ClientService_Impl implements ClientService {
 	ClientDao dao;
 
 	@Override
-	public void createClients() {
-		dao.createClients();
-	}
-
-	@Override
 	public Client getClient(int i) {
 		return dao.getClient(i);
 	}
