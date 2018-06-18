@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.mycompany.crudmem.LongProcess;
 import com.mycompany.crudmem.model.Client;
-import com.mycompany.crudmem.service.ClientService;
+import com.mycompany.crudmem.service.ClientServ;
 
 /**
  * @author Leonid Ivanov
@@ -22,7 +22,7 @@ import com.mycompany.crudmem.service.ClientService;
 public class EditController {
 
 	@Autowired
-	ClientService service;
+	ClientServ service;
 
 	@RequestMapping(params = "save", method = RequestMethod.POST)
 	public RedirectView save(@Valid Client c, BindingResult bindingResult, Model model) {

@@ -1,4 +1,4 @@
-package com.mycompany.crudmem.repository;
+package com.mycompany.crudmem.service;
 
 import static com.mycompany.crudmem.Astat.counter;
 import static com.mycompany.crudmem.Astat.dataList;
@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.mycompany.crudmem.LongProcess;
 import com.mycompany.crudmem.model.Client;
@@ -17,10 +17,9 @@ import com.mycompany.crudmem.model.Client;
  *
  * @author Leonid Ivanov
  */
-@Repository
-public class ClientDao_Impl implements ClientDao {
+@Service
+public class ClientServ {
 
-	@Override
 	public Client getClient(int x) {
 		for (Client client : dataList) {
 			if (client.id_client == x) {
@@ -31,12 +30,10 @@ public class ClientDao_Impl implements ClientDao {
 		return new Client();
 	}
 
-	@Override
 	public List<Client> getClients() {
 		return dataList;
 	}
 
-	@Override
 	public List<Client> getClientsForSnils(String snils) {
 		List<Client> newList = new ArrayList<>();
 		for (Client client : dataList) {
@@ -47,7 +44,6 @@ public class ClientDao_Impl implements ClientDao {
 		return newList;
 	}
 
-	@Override
 	public List<Client> getClientsForUniqSnils(String snils) {
 		List<Client> newList = new ArrayList<>();
 		for (Client client : dataList) {
@@ -58,7 +54,6 @@ public class ClientDao_Impl implements ClientDao {
 		return newList;
 	}
 
-	@Override
 	public List<Client> addClient(Client client) {
 		client.id_client = getNewId();
 		dataList.add(client);
@@ -88,7 +83,6 @@ public class ClientDao_Impl implements ClientDao {
 		return dataList.get(dataList.size() - 1).id_client + 1;
 	}
 
-	@Override
 	public List<Client> editClient(Client clientX) {
 		System.out.println("new client =" + clientX);
 		for (Client client : dataList) {
@@ -104,7 +98,6 @@ public class ClientDao_Impl implements ClientDao {
 		return dataList;
 	}
 
-	@Override
 	public List<Client> deleteClient(int x) {
 		for (Client client : dataList) {
 			if (client.id_client == x) {
@@ -122,4 +115,5 @@ public class ClientDao_Impl implements ClientDao {
 		counter = counter + 1;
 		LongProcess.checkLongProcess();
 	}
+
 }

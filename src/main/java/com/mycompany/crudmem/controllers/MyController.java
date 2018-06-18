@@ -14,7 +14,7 @@ import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.mycompany.crudmem.service.ClientService;
+import com.mycompany.crudmem.service.ClientServ;
 
 /***
  * @author Leonid Ivanov
@@ -24,7 +24,7 @@ import com.mycompany.crudmem.service.ClientService;
 public class MyController {
 
 	@Autowired
-	ClientService service;
+	ClientServ service;
 
 	@RequestMapping("/")
 	public String index(Model map) {

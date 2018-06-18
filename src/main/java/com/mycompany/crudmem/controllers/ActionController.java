@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.mycompany.crudmem.LongProcess;
 import com.mycompany.crudmem.model.Client;
-import com.mycompany.crudmem.service.ClientService;
+import com.mycompany.crudmem.service.ClientServ;
 
 /**
  * @author Leonid Ivanov
@@ -27,7 +27,7 @@ import com.mycompany.crudmem.service.ClientService;
 public class ActionController {
 
 	@Autowired
-	ClientService service;
+	ClientServ service;
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public RedirectView addClient(@Valid Client c, BindingResult bindingResult, Model model) {
