@@ -29,6 +29,9 @@ public class ActionController {
 	@Autowired
 	ClientServ service;
 
+	@Autowired
+	LongProcess longProcess;
+
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public RedirectView addClient(@Valid Client c, BindingResult bindingResult, Model model) {
 		if (!service.getClientsForUniqSnils(c.snils).isEmpty()) {
@@ -36,7 +39,7 @@ public class ActionController {
 			return new RedirectView("/snils_dupl", true);
 		}
 
-		if (LongProcess.isLongProcessWork()) {
+		if (longProcess.isLongProcessWork()) {
 			System.out.println("redirect: add-->wait");
 			return new RedirectView("/wait", true);
 		}
@@ -67,7 +70,7 @@ public class ActionController {
 
 	@RequestMapping("/edit")
 	public ModelAndView edit(@RequestParam("id") int id) {
-		if (LongProcess.isLongProcessWork()) {
+		if (longProcess.isLongProcessWork()) {
 			System.out.println("redirect: edit-->wait");
 			return new ModelAndView("wait");
 		}
@@ -83,7 +86,7 @@ public class ActionController {
 
 	@RequestMapping(path = "/delete", produces = MediaType.TEXT_PLAIN_VALUE)
 	public RedirectView delete(@RequestParam("id") int id, Model map) {
-		if (LongProcess.isLongProcessWork()) {
+		if (longProcess.isLongProcessWork()) {
 			System.out.println("redirect: del-->wait");
 			return new RedirectView("/wait", true);
 		}
