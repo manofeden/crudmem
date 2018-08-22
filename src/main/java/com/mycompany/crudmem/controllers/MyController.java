@@ -16,10 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.mycompany.crudmem.service.ClientServ;
 
-/***
- * @author Leonid Ivanov
- */
-
 @Controller
 public class MyController {
 

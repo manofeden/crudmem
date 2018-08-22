@@ -116,7 +116,7 @@ public class ClientServ {
 	}
 
 	private void appendCounter() {
-		stat.counter = stat.counter + 1;
+		stat.counter.incrementAndGet();
 		longProcess.checkLongProcess();
 	}
 
